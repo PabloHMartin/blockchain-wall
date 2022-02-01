@@ -25,7 +25,9 @@
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
+
   contracts_build_directory: './web-wall/contracts',
+
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -48,6 +50,7 @@ module.exports = {
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
+
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -74,6 +77,7 @@ module.exports = {
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
   },
+
   // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000
@@ -83,6 +87,7 @@ module.exports = {
   compilers: {
     solc: {
        version: "0.8.7",    // Fetch exact version from solc-bin (default: truffle's version)
+
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

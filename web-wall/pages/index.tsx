@@ -57,5 +57,6 @@ export default function Home({title, description, image, messages}) {
         
       </div>
     </main>
+
   )
 }
