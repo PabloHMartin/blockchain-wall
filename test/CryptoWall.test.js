@@ -4,10 +4,10 @@ const acc_2 = '0xD3BDD5AFbd44c3Cbb189b9EFF276DdfD01300a6F';
 
 contract('CryptoWall', async ([deployer, user]) => {
 
-    let cw;
+    let cw = null;
 
     beforeEach( async () => {
-        cw = await CryptoWall.deployed();
+        cw = await CryptoWall.new();
     })
 
     describe('test for cryptowall', () => {
@@ -30,24 +30,33 @@ contract('CryptoWall', async ([deployer, user]) => {
             expect(owner).to.have.string(acc_1)
         })
 
-        // it('should have correct length keys', async() => {
-        //     let keysLength = await cw.getMessagesSize();
-        //     console.log(keysLength);
-        //     expect(keysLength.length).to.equal(0);
-        //     // const testMsg = "this is the way";
-        //     // await cw.setMsg(testMsg,  { from: acc_1 });
-        //     // expect(keysLength.length).to.equal(1);
-        // })
+        it('should have correct length keys', async() => {
+            let keysLength = await cw.getMessagesSize();
+            expect(Number(keysLength)).to.equal(0);
+            const testMsg = "this is the way";
+            await cw.setMsg(testMsg);
+            let keysLength2 = await cw.getMessagesSize();
+            expect(Number(keysLength2)).to.equal(1);
+        })
 
         it('should add a message', async() => {
             const testMsg = "this is the way";
             await cw.setMsg(testMsg,  { from: acc_1 });
             const testMsg2 = "I have spoken";
             await cw.setMsg(testMsg2,  { from: acc_2 });
-            const message = await cw.getMsg(acc_1);
-            const message2 = await cw.getMsg(acc_2);
-            expect(message).to.have.string(testMsg);
-            expect(message2).to.have.string(testMsg2);
+            const message = await cw.getMsg(0);
+            const message2 = await cw.getMsg(1);
+            expect(message.message).to.have.string(testMsg );
+            expect(message2.message).to.have.string(testMsg2);
+        })
+        it('should get full array', async() => {
+            const testMsg = "this is the way";
+            await cw.setMsg(testMsg,  { from: acc_1 });
+            const testMsg2 = "I have spoken";
+            await cw.setMsg(testMsg2,  { from: acc_2 });
+            const messages = await cw.getAll();
+            const msgs = messages.map( msg => msg.message);
+            expect(msgs === [testMsg, testMsg2]);
         })
     })
 

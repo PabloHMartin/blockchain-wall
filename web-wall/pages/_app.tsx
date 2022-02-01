@@ -1,7 +1,16 @@
 import '../styles/globals.css'
+import { wrapper } from '../core/redux/app/store';
+import Navbar from '../core/components/Navbar';
+import Header from '../core/components/Header';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const  MyApp = ({ Component, pageProps })  =>  {
+    return (
+      <>
+      <Header />
+      <Component {...pageProps} />
+      <Navbar />
+      </>
+    )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp);
