@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "core/web3.js"  ],
   "exclude": [
     "node_modules"
   ]

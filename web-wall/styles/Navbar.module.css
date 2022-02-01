@@ -1,0 +1,45 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  border-top: 1px dashed grey;
+  width: 100vw;
+  height: 55px;
+  font-size: 20px;
+  padding: 2rem 0;
+  background-color: #c8d7d5;
+}
+.options ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.options ul li {
+  padding: 0;
+  margin: 0;
+  padding-left: 30px;
+  list-style: none;
+  display: block;
+}
+.images {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 30px;
+}
+.images img {
+  width: 45px;
+  padding-left: 20px;
+}
+.active {
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 1040px) {
+  .nav {
+    padding-left: 9%;
+    padding-right: 10%;
+  }
+}

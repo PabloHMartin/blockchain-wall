@@ -1,0 +1,11 @@
+.logo {
+  font-family: "Major Mono Display", monospace;
+  padding: 2rem 30px 1rem;
+  font-size: 24px;
+  border-bottom: 1px dashed grey;
+}
+@media only screen and (min-width: 1040px) {
+  .logo {
+    padding-left: 10%;
+  }
+}

@@ -1,5 +1,10 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+const { createHash } = require('crypto');
 
 export default function handler(req, res) {
-  res.status(200).json({ name: 'John Doe' })
+
+  const msg = "hello";
+
+  const hash = createHash('sha256').update(msg).digest('hex');
+  res.status(200).json({ hash: hash })
+
 }
