@@ -25,7 +25,6 @@ function MessageForm() {
             <div className={styles.title}>Send your message to the wall</div>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <label>
-                    Frirst Name:
                 </label>
                 <textarea
                 rows={5} cols={35}

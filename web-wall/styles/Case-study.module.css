@@ -1,0 +1,23 @@
+.main {
+  padding: 2rem 10px;
+  height: 100vh;
+}
+.cards {
+  padding-bottom: 3rem;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+@media only screen and (min-width: 1040px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    width: 80%;
+  }
+}
